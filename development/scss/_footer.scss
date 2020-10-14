@@ -1,0 +1,21 @@
+footer {
+    font-family: $fontOpenSans;
+    font-size: 24px;
+    line-height: 65px;
+    color: $backgroundScreensColors;
+    background: $header-FontColorInColumn;
+
+    .container {
+        width: $mainWidth;
+        background: $header-FontColorInColumn;
+        margin: 0 auto;
+        p {
+            text-align: center;
+
+            span {
+                color: $buttons-Highlights-ScreenHeaders;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}

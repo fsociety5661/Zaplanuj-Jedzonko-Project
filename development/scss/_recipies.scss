@@ -1,0 +1,100 @@
+div {
+    box-sizing: border-box;
+}
+
+.app__recipies{
+    height: 630px;
+    width: 1070px;
+    font-family: $fontOpenSans;
+    background-color: $backgroundScreensColors;
+    border: 1px $colorTextRows-FunctionIcons dashed;
+    margin: 30px auto 0;
+    .head {
+        height: 50px;
+        width: 994px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding-top: 17px;
+        border-bottom: 2px $colorTextRows-FunctionIcons solid;
+        p {
+            color: $buttons-Highlights-ScreenHeaders;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 33px;
+            text-transform: uppercase;
+        }
+        img {
+            height: 29px;
+            width: 29px;
+            cursor: pointer;
+        }
+    }
+    .titles {
+        display: flex;
+        width: 973px;
+        margin: 12px auto 0;
+        padding: 0 7px;
+        border-top: 1px $colorTextRows-FunctionIcons solid;
+        border-bottom: 1px $colorTextRows-FunctionIcons solid;
+        .col {
+            color: $sidePanel-Navigation;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 50px;
+        }
+    }
+
+    .recipies__list {
+        height: 470px;
+        width: 973px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        margin: 0 auto;
+    }
+
+    .recipie {
+        display: flex;
+        width: 973px;
+        color: $colorTextRows-FunctionIcons;
+        border-bottom: 1px $colorTextRows-FunctionIcons solid;
+        margin: 0 auto;
+        padding: 10px 7px;
+        .col {
+            font-size: 16px;
+            line-height: 18px;
+            &__3 {
+                font-size: 14px;
+            }
+        }
+        .action {
+            height: 32px;
+            width: 32px;
+            background: url("../media/addremove.png");
+            cursor: pointer;
+            &__edit {
+                background-position: center left;
+            }
+            &__remove {
+                background-position: center right;
+            }
+        }
+    }
+    .col {
+        &__1 {
+            width: 70px;
+        }
+        &__2 {
+            width: 220px;
+        }
+        &__3 {
+            width: 550px;
+        }
+        &__4 {
+            div {
+                display: inline-block;
+            }
+        }
+    }
+}

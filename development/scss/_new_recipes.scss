@@ -1,0 +1,148 @@
+.new_recipes {
+    border: 1px solid black;
+    border-style: dashed;
+    font-family: $fontOpenSans;
+    width: $mainWidth;
+    height: 630px;
+    margin: 0 auto;
+    margin-top: 30px;
+};
+
+.new_recipes_wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: $fontOpenSans;
+}
+
+.new_recipes_header, .new_recipes_instructions, .new_recipes_details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+};
+
+.new_recipes_header {
+    width: 90%;
+    border-bottom: 2px solid $colorTextRows-FunctionIcons;
+    margin-top: 35px;
+}
+
+.new_recipes_header h1 {
+    color:$buttons-Highlights-ScreenHeaders;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 7px;
+}
+
+.new_recipes_header button {
+    height: 33px;
+    background-color: $buttons-Highlights-ScreenHeaders;
+    border-style: none;
+    font-size: 15px;
+    color:white;
+    margin-bottom: 7px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px;
+    outline-style: none;
+}
+
+.new_recipes_title, .instructions, .ingredients {
+    width: 50%;
+};
+
+.new_recipes_details {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 9px;
+};
+
+.recipe_name, .recipe_description {
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+    color: $sidePanel-Navigation;
+};
+
+.recipe_name h1, .recipe_description h1 {
+    width: 30%;
+}
+
+.recipe_name textarea, .recipe_description textarea, .instructions textarea, .ingredients textarea  {
+    width: 70%;
+    outline-style: none;
+    border: 1px solid $colorTextRows-FunctionIcons;
+    margin-bottom: 15px;
+    resize: none;
+}
+
+.recipe_description textarea {
+    height: 70px;
+};
+
+.recipe_name textarea {
+    height: 25px;
+};
+
+.recipt_name_title {
+    margin-top: 4px;
+};
+
+.new_recipes_instructions {
+    width: 85%;
+};
+
+.instructions, .ingredients {
+    position: relative;
+}
+
+.instructions_title, .ingredients_title {
+    border-bottom: 2px solid $colorTextRows-FunctionIcons;
+    font-size: 25px;
+    color: $sidePanel-Navigation;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+};
+
+.instructions_title {
+    width: 90%;
+    margin-bottom: 10px;
+};
+
+.ingredients_title {
+    margin-bottom: 14px;
+};
+
+.instructions textarea {
+    height: 70px;
+    width: 300px;
+    margin-left: 8px;
+};
+
+.ingredients textarea {
+    height: 20px;
+    width: 340px;
+    margin-left: 3px;
+};
+
+.fa-plus-square {
+    font-size: 30px;
+    color: $colorSuccessMessage;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 10px;
+};
+
+textarea {
+    font-family: $fontOpenSans;
+    font-size: 15px;
+};
+
+.instructions_list {
+    list-style-type: decimal;
+};
+
+.ingredients_list {
+    list-style-type: disc;
+}

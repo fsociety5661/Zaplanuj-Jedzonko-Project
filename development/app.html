@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Zaplanuj Jedzonko</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://kit.fontawesome.com/702c47ef17.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-wrapper">
+        <h1 class="logo logo-app">
+          <span>Zaplanuj</span><span>Jedzonko</span>
+        </h1>
+        <div class="user">
+          <div class="user-name">Imię</div>
+          <div class="user-logo">
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="main-app-view">
+      <div class="side-pannel">
+        <div class="side-pannel-menu">
+          <a href="#" class="side-pannel-list desktop">Pulpit
+            <i class="fas fa-chevron-right"></i>
+          </a>
+          <a href="#" class="side-pannel-list recipes">Przepisy
+            <i class="fas fa-chevron-right"></i>
+          </a>
+          <a href="#" class="side-pannel-list plans">Plany
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="message_form">
+        <div class="mesagge_form_wrapper">
+          <div class="message_form_container">
+            <h1>Witaj,</h1>
+            <h2>wygląda na to, że jesteś tutaj pierwszy raz! </h2>
+            <input id="name" type="text" placeholder="  tutaj wpisz jak masz na imię">
+            <button class="mesage_form_button">Gotowe!</button>
+            <p>Podaj nam swoje imię, a my zorganizujemy dla Ciebie naszą aplikacje :)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="app__dashboard" id="desktop" style="display: none">
+        <div class="adds">
+          <div class="desktop_add_wrapper">
+            <div class="add add__recipes">
+              <i class="fas fa-plus"></i>
+              <p>dodaj przepis</p>
+            </div>
+            <!-- <a href="recipes.html" class="add add__recipes">
+              <i class="fas fa-plus"></i>
+              <p>dodaj przepis</p>
+            </a> -->
+            <div class="add add__plan">
+              <i class="fas fa-plus"></i>
+              <p>dodaj plan</p>
+            </div>
+          </div>
+          <div class="widgets">
+            <div class="widget widget__info"><i class="fas fa-info-circle"></i><div class="widget__text">Masz już 99 przepisów, nieźle!</div><i class="fas fa-window-close"></i></div>
+            <div class="widget widget__remember"><i class="fas fa-exclamation-circle"></i><div class="widget__text">Pamiętaj, aby dodać plan</div><i class="fas fa-window-close"></i></div>
+            <div class="widget widget__great"><i class="fas fa-check-circle"></i><div class="widget__text">Świetnie, że jesteś. Udanego planowania i smacznego! :)</div><i class="fas fa-window-close"></i></div>
+          </div>
+        </div>
+        <div class="yourplan">
+          <div class="week">Twój plan {nr_tygodnia} tydzień:</div>
+          <table>
+            <thead>
+              <tr class="days">
+                <th class="pon">Poniedziałek</th>
+                <th class="wt">Wtorek</th>
+                <th class="sr">Środa</th>
+                <th class="czw">Czwartek</th>
+                <th class="pt">Piątek</th>
+                <th class="sob">Sobota</th>
+                <th class="nd">Niedziela</th>
+              </tr>
+            </thead>
+            <tr class="breakfast1">
+              <td>Sniadanie</td>
+              <td>Sniadanie</td>
+              <td>Sniadanie</td>
+              <td>Sniadanie</td>
+              <td>Sniadanie</td>
+              <td>Sniadanie</td>
+              <td>Sniadanie</td>
+            </tr>
+            <tr class="breakfast2">
+              <td>Driuge sniadanie</td>
+              <td>Driuge sniadanie</td>
+              <td>Driuge sniadanie</td>
+              <td>Driuge sniadanie</td>
+              <td>Driuge sniadanie</td>
+              <td>Driuge sniadanie</td>
+              <td>Driuge sniadanie</td>
+            </tr>
+            <tr class="soup">
+              <td>Zupa</td>
+              <td>Zupa</td>
+              <td>Zupa</td>
+              <td>Zupa</td>
+              <td>Zupa</td>
+              <td>Zupa</td>
+              <td>Zupa</td>
+            </tr>
+            <tr class="maincourse">
+              <td>Drugie danie</td>
+              <td>Drugie danie</td>
+              <td>Drugie danie</td>
+              <td>Drugie danie</td>
+              <td>Drugie danie</td>
+              <td>Drugie danie</td>
+              <td>Drugie danie</td>
+            <tr class="supper">
+              <td>Kolacja</td>
+              <td>Kolacja</td>
+              <td>Kolacja</td>
+              <td>Kolacja</td>
+              <td>Kolacja</td>
+              <td>Kolacja</td>
+              <td>Kolacja</td>
+              </tr>
+            </tr>
+          </table>
+          <nav>
+            <div class="nav nav__prev"><i class="fas fa-angle-double-left"></i><p>   poprzedni</p></div>
+            <div class="nav nav__next"><p>następny   </p><i class="fas fa-angle-double-right"></i></div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="app__recipies" style="display: none">
+        <div class="head">
+          <p>lista przepisów</p><img class="app__recipies__close" src="./media/greenplus.png" alt="Dodaj">
+        </div>
+        <div class="titles">
+          <div class="col col__1">id</div>
+          <div class="col col__2">nazwa</div>
+          <div class="col col__3">opis</div>
+          <div class="col col__4">akcje</div>
+        </div>
+        <div class="recipies__list">
+          <div class="recipie" id="1">
+            <div class="col col__1">1</div>
+            <div class="col col__2">Zapiekanka z ziemniakami i brukselką</div>
+            <div class="col col__3">Mamusina najlepsza zapiekanka pod słońcem. Można ją podać jako główne danie albo jako kolację. W zapiekance możesz użyć również kiełbasy paprykowej sprawi ona, że zapiekanka będzie ostrzejsza w smaku. Zgodnie z zalecanimi Makłowicza, podawać z dobrze dobranym winkiem ;)</div>
+            <div class="col col__4">
+              <div class="action action__edit"></div>
+              <div class="action action__remove"></div>
+            </div>
+          </div>
+          <div class="recipie" id="2">
+            <div class="col col__1">2</div>
+            <div class="col col__2">Zapiekanka z ziemniakami i brukselką</div>
+            <div class="col col__3">Mamusina najlepsza zapiekanka pod słońcem. Można ją podać jako główne danie albo jako kolację. W zapiekance możesz użyć również kiełbasy paprykowej sprawi ona, że zapiekanka będzie ostrzejsza w smaku. Zgodnie z zalecanimi Makłowicza, podawać z dobrze dobranym winkiem ;)</div>
+            <div class="col col__4">
+              <div class="action action__edit"></div>
+              <div class="action action__remove"></div>
+            </div>
+          </div>
+          <div class="recipie" id="3">
+            <div class="col col__1">3</div>
+            <div class="col col__2">Zapiekanka z ziemniakami i brukselką</div>
+            <div class="col col__3">Mamusina najlepsza zapiekanka pod słońcem. Można ją podać jako główne danie albo jako kolację. W zapiekance możesz użyć również kiełbasy paprykowej sprawi ona, że zapiekanka będzie ostrzejsza w smaku. Zgodnie z zalecanimi Makłowicza, podawać z dobrze dobranym winkiem ;)</div>
+            <div class="col col__4">
+              <div class="action action__edit"></div>
+              <div class="action action__remove"></div>
+            </div>
+          </div>
+          <div class="recipie" id="4">
+            <div class="col col__1">4</div>
+            <div class="col col__2">Zapiekanka z ziemniakami i brukselką</div>
+            <div class="col col__3">Mamusina najlepsza zapiekanka pod słońcem. Można ją podać jako główne danie albo jako kolację. W zapiekance możesz użyć również kiełbasy paprykowej sprawi ona, że zapiekanka będzie ostrzejsza w smaku. Zgodnie z zalecanimi Makłowicza, podawać z dobrze dobranym winkiem ;)</div>
+            <div class="col col__4">
+              <div class="action action__edit"></div>
+              <div class="action action__remove"></div>
+            </div>
+          </div>
+          <div class="recipie" id="5">
+            <div class="col col__1">5</div>
+            <div class="col col__2">Zapiekanka z ziemniakami i brukselką</div>
+            <div class="col col__3">Mamusina najlepsza zapiekanka pod słońcem. Można ją podać jako główne danie albo jako kolację. W zapiekance możesz użyć również kiełbasy paprykowej sprawi ona, że zapiekanka będzie ostrzejsza w smaku. Zgodnie z zalecanimi Makłowicza, podawać z dobrze dobranym winkiem ;)</div>
+            <div class="col col__4">
+              <div class="action action__edit"></div>
+              <div class="action action__remove"></div>
+            </div>
+          </div>
+          <div class="recipie" id="6">
+            <div class="col col__1">6</div>
+            <div class="col col__2">Zapiekanka z ziemniakami i brukselką</div>
+            <div class="col col__3">Mamusina najlepsza zapiekanka pod słońcem. Można ją podać jako główne danie albo jako kolację. W zapiekance możesz użyć również kiełbasy paprykowej sprawi ona, że zapiekanka będzie ostrzejsza w smaku. Zgodnie z zalecanimi Makłowicza, podawać z dobrze dobranym winkiem ;)</div>
+            <div class="col col__4">
+              <div class="action action__edit"></div>
+              <div class="action action__remove"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="app__plan" style="display: none">
+        <div class="head">
+          <p>lista planów</p><img class="app__plans__close" src="./media/greenplus.png" alt="Dodaj">
+        </div>
+        <div class="titles">
+          <div class="col col__1">id</div>
+          <div class="col col__2">nazwa</div>
+          <div class="col col__3">opis</div>
+          <div class="col col__4">tydzień</div>
+          <div class="col col__5">akcje</div>
+        </div>
+        <div class="recipies__list">
+          <div class="plan" id="1">
+            <div class="col col__1">1</div>
+            <div class="col col__2">Plan jarski na bezmięsny tydzień</div>
+            <div class="col col__3">Pojęcie kuchnia wegetariańska określa pożywienie, które ani nie zawiera mięsa, ani nie zostało przygotowane na bazie pochodzącej z mięsa (np. na rosole drobiowym). Laktoowowegetarianie (najczęściej spotykany typ wegetarian w zachodnim świecie) spożywają nabiał, laktowegetarianie wykluczają jaja, ale nie inne produkty nabiałowe.</div>
+            <div class="col col__4">4</div>
+            <div class="col col__5">
+              <div class="action action__edit"></div>
+              <div class="action action__remove"></div>
+            </div>
+          </div>
+          <div class="plan" id="2">
+            <div class="col col__1">2</div>
+            <div class="col col__2">Plan jarski na bezmięsny tydzień</div>
+            <div class="col col__3">Pojęcie kuchnia wegetariańska określa pożywienie, które ani nie zawiera mięsa, ani nie zostało przygotowane na bazie pochodzącej z mięsa (np. na rosole drobiowym). Laktoowowegetarianie (najczęściej spotykany typ wegetarian w zachodnim świecie) spożywają nabiał, laktowegetarianie wykluczają jaja, ale nie inne produkty nabiałowe.</div>
+            <div class="col col__4">43</div>
+            <div class="col col__5">
+              <div class="action action__edit"></div>
+              <div class="action action__remove"></div>
+            </div>
+          </div>
+          <div class="plan" id="3">
+            <div class="col col__1">3</div>
+            <div class="col col__2">Plan jarski na bezmięsny tydzień</div>
+            <div class="col col__3">Pojęcie kuchnia wegetariańska określa pożywienie, które ani nie zawiera mięsa, ani nie zostało przygotowane na bazie pochodzącej z mięsa (np. na rosole drobiowym). Laktoowowegetarianie (najczęściej spotykany typ wegetarian w zachodnim świecie) spożywają nabiał, laktowegetarianie wykluczają jaja, ale nie inne produkty nabiałowe.</div>
+            <div class="col col__4">12</div>
+            <div class="col col__5">
+              <div class="action action__edit"></div>
+              <div class="action action__remove"></div>
+            </div>
+          </div>
+          <div class="plan" id="4">
+            <div class="col col__1">4</div>
+            <div class="col col__2">Plan jarski na bezmięsny tydzień</div>
+            <div class="col col__3">Pojęcie kuchnia wegetariańska określa pożywienie, które ani nie zawiera mięsa, ani nie zostało przygotowane na bazie pochodzącej z mięsa (np. na rosole drobiowym). Laktoowowegetarianie (najczęściej spotykany typ wegetarian w zachodnim świecie) spożywają nabiał, laktowegetarianie wykluczają jaja, ale nie inne produkty nabiałowe.</div>
+            <div class="col col__4">14</div>
+            <div class="col col__5">
+              <div class="action action__edit"></div>
+              <div class="action action__remove"></div>
+            </div>
+          </div>
+          <div class="plan" id="5">
+            <div class="col col__1">5</div>
+            <div class="col col__2">Plan jarski na bezmięsny tydzień</div>
+            <div class="col col__3">Pojęcie kuchnia wegetariańska określa pożywienie, które ani nie zawiera mięsa, ani nie zostało przygotowane na bazie pochodzącej z mięsa (np. na rosole drobiowym). Laktoowowegetarianie (najczęściej spotykany typ wegetarian w zachodnim świecie) spożywają nabiał, laktowegetarianie wykluczają jaja, ale nie inne produkty nabiałowe.</div>
+            <div class="col col__4">24</div>
+            <div class="col col__5">
+              <div class="action action__edit"></div>
+              <div class="action action__remove"></div>
+            </div>
+          </div>
+          <div class="plan" id="6">
+            <div class="col col__1">6</div>
+            <div class="col col__2">Plan jarski na bezmięsny tydzień</div>
+            <div class="col col__3">Pojęcie kuchnia wegetariańska określa pożywienie, które ani nie zawiera mięsa, ani nie zostało przygotowane na bazie pochodzącej z mięsa (np. na rosole drobiowym). Laktoowowegetarianie (najczęściej spotykany typ wegetarian w zachodnim świecie) spożywają nabiał, laktowegetarianie wykluczają jaja, ale nie inne produkty nabiałowe.</div>
+            <div class="col col__4">8</div>
+            <div class="col col__5">
+              <div class="action action__edit"></div>
+              <div class="action action__remove"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="addplan" style="display: none">
+        <div class="addplan__head"><p>nowy plan</p><div class="button">Zapisz i zamknij</div></div>
+        <div class="addplan__description">
+            <form class="plan" action="">
+            <div class="plan__name">
+                <label for="plan__name">Nazwa planu</label>
+                <input type="text" id="plan__name" name="plan__name">
+            </div>
+            <div class="plan__description">
+                <label for="plan__description">Opis planu</label>
+                <textarea id="plan__description" name="plan__description"></textarea>
+            </div>
+            <div class="plan__weeknumber">
+                <label for="plan__weeknumber">Numer tygodnia</label>
+                <input type="text" id="plan__weeknumber" name="plan__weeknumber">
+            </div>
+            </form>
+        </div>
+        <table>
+            <thead>
+            <tr class="meals">
+                <td></td>
+                <th class="breakfast1">Śniadanie</th>
+                <th class="breakfast2">Drugie śniadanie</th>
+                <th class="soup">Zupa</th>
+                <th class="maincourse">Drugie danie</th>
+                <th class="supper">Kolacja</th>
+            </tr>
+            </thead>
+            <tr class="pon">
+            <th class="day">Poniedziałek</th>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            </tr>
+            <tr class="wt">
+            <th class="day">Wtorek</th>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            </tr>
+            <tr class="sr">
+            <th class="day">Środa</th>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            </tr>
+            <tr class="czw">
+            <th class="day">Czwartek</th>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            </tr>
+            <tr class="pt">
+            <th class="day">Piątek</th>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            </tr>
+            <tr class="sob">
+            <th class="day">Sobota</th>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            </tr>
+            <tr class="nd">
+            <th class="day">Niedziela</th>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            <td>
+                <select id="" name="meals">
+                <option value="Jajecznica">Jajecznica</option>
+                <option value="Owsianka">Owsianka</option>
+                <option value="Pomidorowa">Pomidorowa</option>
+                <option value="Schabowy">Schabowy</option>
+                <option value="Kanapki">Kanapki</option>
+                </select>
+            </td>
+            </tr>
+        </table>
+        </div>
+
+        <div class="new_recipes" style="display: none">
+          <div class="new_recipes_wrapper">
+              <diva class="new_recipes_header">
+                  <h1 class="new_recipes_title">NOWY PRZEPIS</h1>
+                  <button class="new_recipes_button">Zapisz i zamknij</button>
+              </diva>
+              <div class="new_recipes_details">
+                  <div class="recipe_name">
+                    <h1 class="recipe_name_title">Nazwa przepisu</h1>
+                    <textarea name="recipe_title" id="recipe_title" cols="30" rows="1"></textarea>
+                  </div>
+                  <div class="recipe_description">
+                    <h1>Opis przepisu</h1>
+                    <textarea name="recipe_description" id="recipe_description" cols="30" rows="10"></textarea>
+                  </div>
+              </div>
+              <div class="new_recipes_instructions">
+                  <div class="instructions">
+                      <h1 class="instructions_title">Instrukcje</h1>
+                      <textarea name="instructions" id="instructions" cols="30" rows="30"></textarea>
+                      <i class="fas fa-plus-square"></i>
+                      <ul class="instructions_list">
+
+                      </ul>
+                  </div>
+                  <div class="ingredients">
+                    <h1 class="ingredients_title">Składniki</h1>
+                    <textarea name="ingredients" id="ingredients" cols="30" rows="2"></textarea>
+                    <i class="fas fa-plus-square"></i>
+                    <ul class="ingredients_list">
+
+                    </ul>
+                </div>
+              </div>
+          </div>
+        </div>
+
+    </section>
+
+    <script src="./js/app.js"></script>
+
+  </body>
+</html>

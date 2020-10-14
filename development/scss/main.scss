@@ -1,0 +1,23 @@
+//general
+@import "./generic/reset";
+@import "./settings/all";
+@import "./settings/colors";
+@import "./elements/fonts";
+//index.html
+@import "./header";
+@import "./features";
+@import "./newsLetter";
+@import "./callToAction";
+@import "./carousel";
+@import "./about";
+@import "./threecolumns";
+@import "./footer";
+//app.html
+
+@import "./mainAppView";
+@import "./message_form";
+@import "./addplan";
+@import "./dashboard";
+@import "./new_recipes";
+@import "./recipies";
+@import "./plans";

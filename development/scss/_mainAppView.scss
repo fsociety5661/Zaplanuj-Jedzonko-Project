@@ -1,0 +1,61 @@
+.logo-app {
+    padding-left: 30px;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .user-name {
+        font-family: $fontOpenSans;
+        color: $backgroundScreensColors;
+        font-size: 24px;
+        padding-right: 30px;
+    }
+    .fa-user-circle {
+        color: $buttons-Highlights-ScreenHeaders;
+        font-size: 45px;
+        padding-right: 50px;
+    }
+}
+
+.main-app-view {
+    display: flex;
+}
+
+.side-pannel {
+    width: 200px;
+    // height: calc(100vh - 80px);
+    height: 690px;
+    background: $sidePanel-Navigation;
+    float: left;
+};
+
+.side-pannel-menu {
+    display: flex;
+    flex-direction: column;
+    i {
+        font-size: 18px;
+        opacity: 0;
+    }
+    .side-pannel-list {
+        display: block;
+        font-family: $fontOpenSans;
+        font-size: 20px;
+        color: $backgroundScreensColors;
+        padding: 30px 15px;
+        padding-right: 10px;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+        &:hover {
+            font-weight: bold;
+            cursor: pointer;
+            border-left: 5px solid $buttons-Highlights-ScreenHeaders;
+        }
+        &:hover i {
+            color: $buttons-Highlights-ScreenHeaders;
+            opacity: 1;
+        }
+    }
+}

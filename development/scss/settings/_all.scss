@@ -1,0 +1,27 @@
+@mixin logo {
+    font-family: $fontCharmonman;
+    font-size: 32px;
+    span:first-child {
+        color: $backgroundScreensColors;
+    }
+    span:last-child {
+        color: $buttons-Highlights-ScreenHeaders;
+    }
+}
+
+@mixin button {
+    text-decoration: none;
+    background-color: $buttons-Highlights-ScreenHeaders;
+    color: $backgroundScreensColors;
+    padding: 15px 40px;
+    font-family: $fontOpenSans;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+$mainWidth: 1240px;
+
+body {
+    font-size: 14px;
+    background-color: #fffffa;
+  };
